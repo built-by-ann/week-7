@@ -1,3 +1,21 @@
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+
+client = OpenAI()
+
+INSTRUCTIONS = """
+You are a friendly vocabulary study coach for high school students.
+
+Explain vocabulary words in simple language.
+Give an example sentence for each word.
+Help students practice by asking short quiz questions.
+Be encouraging and give helpful feedback.
+Keep your responses short and easy to understand.
+Stay focused on vocabulary learning.
+"""
+
 previous_response_id = None
 
 while True:
