@@ -1,46 +1,49 @@
-from dotenv import load_dotenv
-from openai import OpenAI
+# VOCABULARY STUDY COACH
 
-load_dotenv()
+# 1. Do your imports, load your .env file,
+# and create an OpenAI client.
 
-client = OpenAI()
 
-INSTRUCTIONS = """
-You are a friendly vocabulary study coach for high school students.
+# 2. Create INSTRUCTIONS for your chatbot.
+# Make it a friendly vocabulary coach that explains words,
+# gives examples, and quizzes students.
 
-Explain vocabulary words in simple language.
-Give an example sentence for each word.
-Help students practice by asking short quiz questions.
-Be encouraging and give helpful feedback.
-Keep your responses short and easy to understand.
-Stay focused on vocabulary learning.
-"""
 
-previous_response_id = None
+# 3. Create a variable to store the previous response ID.
+# Start with None.
 
-while True:
-    message = input("You: ").strip()
 
-    if not message:
-        print("Bot: Please type something.")
-        continue
+# 4. Create a while True loop that asks for user input.
 
-    if message.lower() == "quit":
-        print("Bot: Goodbye!")
-        break
 
-    if message.lower() == "reset":
-        previous_response_id = None
-        print("Bot: Conversation reset.")
-        continue
+# 5. Add three special cases:
+# "quit" -> end the program
+# "reset" -> clear conversation memory
+# empty input -> ask the user to try again
 
-    response = client.responses.create(
-        model="gpt-6-luna",
-        instructions=INSTRUCTIONS,
-        input=message,
-        previous_response_id=previous_response_id
-    )
 
-    print("Bot:", response.output_text)
+# 6. Use client.responses.create() to send the message.
+# Include the model, instructions, input,
+# and previous_response_id.
 
-    previous_response_id = response.id
+
+# 7. Print the AI's response and save its response ID.
+
+
+# 8. TEST YOUR CHATBOT!
+# - Ask for a word definition.
+# - Ask a follow-up question.
+# - Ask the chatbot to quiz you.
+# - Try an empty message.
+# - Test the reset command.
+
+
+# BONUS CHALLENGE:
+# Customize your chatbot!
+#
+# Ideas:
+# - Make it specialize in SAT vocabulary.
+# - Give students hints instead of immediate answers.
+# - Add three difficulty levels: easy, medium, and hard.
+# - Make it teach vocabulary using funny example sentences.
+# - Ask students to use each new word in their own sentence.
