@@ -22,7 +22,7 @@ message = input("You: ")
 
 response = client.responses.create(
     model="gpt-6-luna",
-    input= message
+    input= # what should go here?
 )
 
 print("Bot:", response.output_text)

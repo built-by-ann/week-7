@@ -23,12 +23,11 @@ load_dotenv()
 client = OpenAI()
 
 # wrap this code in something to make it LOOP
-while True:
-    message = input("You: ")
+message = input("You: ")
 
-    response = client.responses.create(
-        model="gpt-6-luna",
-        input=message
-    )
+response = client.responses.create(
+    model="gpt-6-luna",
+    input=message
+)
 
-    print("Bot:", response.output_text)
+print("Bot:", response.output_text)
