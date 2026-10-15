@@ -27,8 +27,8 @@ while True:
     message = input("You: ")
 
     if message.lower() == "quit":
-        print("Bot: Goodbye!")
-        break
+        # print a goodbye message
+        # do something to stop the loop
 
     response = client.responses.create(
         model="gpt-6-luna",
